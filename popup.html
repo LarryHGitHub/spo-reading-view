@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SPO Reading View</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 13px/1.4 "Segoe UI", system-ui, sans-serif; margin: 0; padding: 14px 16px; width: 300px; }
+  h1 { font-size: 15px; margin: 0 0 10px; }
+  label { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0; cursor: pointer; }
+  input { margin-top: 2px; }
+  .hint { color: GrayText; font-size: 12px; }
+  footer { margin-top: 12px; color: GrayText; font-size: 11px; }
+</style>
+</head>
+<body>
+  <h1>SPO Reading View</h1>
+  <label>
+    <input type="checkbox" id="force_view_default">
+    <span>Open documents in Reading View<br>
+      <span class="hint">Rewrites <code>action=default</code> links on SharePoint Online / OneDrive.</span></span>
+  </label>
+  <label>
+    <input type="checkbox" id="force_view_edit">
+    <span>Also override <code>action=edit</code> links<br>
+      <span class="hint">Not recommended: "Edit in Browser" links will also open read-only.</span></span>
+  </label>
+  <footer id="ver"></footer>
+  <script src="popup.js"></script>
+</body>
+</html>

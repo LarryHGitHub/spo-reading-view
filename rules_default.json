@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "removeParams": ["action", "mobileredirect"],
+            "addOrReplaceParams": [
+              { "key": "DefaultItemOpen", "value": "1" },
+              { "key": "Action", "value": "View" }
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "regexFilter": "^https://[^/?#]+\\.sharepoint\\.(?:com|cn)/(?i:(?:[^?#]*/)?_layouts/15/(?:doc2?|wopiframe2?)\\.aspx)\\?(?:[^#]*&)?action=(?i:default)(?:[&#]|$)",
+      "isUrlFilterCaseSensitive": true,
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]
