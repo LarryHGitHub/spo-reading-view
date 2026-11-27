@@ -5,7 +5,7 @@
 <title>SPO Reading View</title>
 <style>
   :root { color-scheme: light dark; }
-  body { font: 13px/1.4 "Segoe UI", system-ui, sans-serif; margin: 0; padding: 14px 16px; width: 300px; }
+  body { font: 13px/1.4 "Segoe UI", system-ui, sans-serif; margin: 0; padding: 14px 16px; width: 310px; }
   h1 { font-size: 15px; margin: 0 0 10px; }
   label { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0; cursor: pointer; }
   input { margin-top: 2px; }
@@ -15,16 +15,18 @@
 </head>
 <body>
   <h1>SPO Reading View</h1>
-  <label>
-    <input type="checkbox" id="force_view_default">
+  <label><input type="checkbox" id="force_view_default">
     <span>Open documents in Reading View<br>
-      <span class="hint">Rewrites <code>action=default</code> links on SharePoint Online / OneDrive.</span></span>
-  </label>
-  <label>
-    <input type="checkbox" id="force_view_edit">
+    <span class="hint">Master switch. Rewrites <code>action=default</code> document links.</span></span></label>
+  <label><input type="checkbox" id="fallback">
+    <span>Handle sharing links and other formats<br>
+    <span class="hint">Recommended. Sharing links (/:w:/s/..., /:x:/s/...) are resolved to the document and opened in Reading View once. Clicking Edit afterwards still works.</span></span></label>
+  <label><input type="checkbox" id="force_view_edit">
     <span>Also override <code>action=edit</code> links<br>
-      <span class="hint">Not recommended: "Edit in Browser" links will also open read-only.</span></span>
-  </label>
+    <span class="hint">Not recommended: explicit "Open in browser for editing" links will open read-only.</span></span></label>
+  <label><input type="checkbox" id="debug">
+    <span>Debug log<br>
+    <span class="hint">Writes a privacy-safe trace to the console (service worker, and the page console for sharing links).</span></span></label>
   <footer id="ver"></footer>
   <script src="popup.js"></script>
 </body>

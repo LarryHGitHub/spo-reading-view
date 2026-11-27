@@ -1,5 +1,4 @@
-const DEFAULTS = { force_view_default: true, force_view_edit: false };
-
+const DEFAULTS = { force_view_default: true, force_view_edit: false, fallback: true, debug: false };
 document.addEventListener('DOMContentLoaded', async () => {
   const s = await chrome.storage.local.get(DEFAULTS);
   for (const id of Object.keys(DEFAULTS)) {
